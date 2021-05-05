@@ -3,20 +3,38 @@ const int LED_1 = 12;
 const int LED_2 = 11;
 const int LED_3 = 10;
 
+// global vars
+int del;
+
 void setup() {
     pinMode(LED_1, OUTPUT);
     pinMode(LED_2, OUTPUT);
     pinMode(LED_3, OUTPUT);
     Serial.begin(9600);
+    del = 500;
 }
 
 void loop() {
+    while(del < 1000) {
+        del += 50;
+        Serial.println("under 1000");
+        display();
+    }
+    while(del > 100) {
+        del -= 50;
+        Serial.println("over 100");
+        display();
+        display();
+    }
+}
+
+void display() {
     red();
-    delay(1000);
+    delay(del);
     green();
-    delay(1000);
+    delay(del);
     blue();
-    delay(1000);
+    delay(del);
 }
 
 void red() {

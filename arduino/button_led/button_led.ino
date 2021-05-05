@@ -1,6 +1,6 @@
 // constants
-const int LED_PIN = 13;
-const int BUTTON_PIN = 2;
+const int LED_PIN = 2;
+const int BUTTON_PIN = 12;
 
 void setup() {
   pinMode(LED_PIN, OUTPUT);
@@ -8,8 +8,5 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(LED_PIN, HIGH);
-  delay(1000);
-  digitalWrite(LED_PIN, LOW);
-  delay(1000);
+  digitalWrite(LED_PIN, !digitalRead(BUTTON_PIN));
 }
