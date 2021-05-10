@@ -10,11 +10,11 @@ int state;
 void setup() {
     // init pins
     pinMode(LED_PIN, OUTPUT);
-    pinMode(BUTTON_PIN, INPUT_PULLUP);
+    pinMode(BUTTON_PIN, INPUT);
 
     // set starting states
-    last = HIGH;
-    current = HIGH;
+    last = LOW;
+    current = LOW;
     state = LOW;
 }
 
@@ -23,7 +23,7 @@ void loop() {
     current = digitalRead(BUTTON_PIN);
 
     // if went from high to low, button was pressed, so toggle state
-    if(last == HIGH && current == LOW) {
+    if(last == LOW && current == HIGH) {
         state = !state;
     }
 
